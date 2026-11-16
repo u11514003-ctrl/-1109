@@ -56,6 +56,8 @@ button:disabled{opacity:.35;cursor:not-allowed}
 <button class="btn-mute" id="btn-mute" type="button" aria-pressed="false">🔊 靜音</button>
 <button class="btn-nav" id="btn-next" type="button">下一頁</button>
 </nav>
+<audio id="page-narration" aria-label="頁面語音朗讀" preload="none"></audio>
+<audio id="background-music" aria-label="背景音樂" preload="none" loop></audio>
 <p class="status" id="audio-status" role="status" aria-live="polite">請按「播放背景音樂」開始聆聽。</p>
 <p class="hint">鍵盤操作：← 上一頁　→ 下一頁　空白鍵：朗讀播放／暫停（按鍵時不會捲動頁面）</p>
 </main>
@@ -99,8 +101,8 @@ const nextBtn=document.getElementById("btn-next");
 const speechBtn=document.getElementById("btn-speech");
 const musicBtn=document.getElementById("btn-music");
 const muteBtn=document.getElementById("btn-mute");
-const speechAudio=new Audio();
-const musicAudio=new Audio();
+const speechAudio=document.getElementById("page-narration");
+const musicAudio=document.getElementById("background-music");
 speechAudio.preload="auto";
 musicAudio.preload="auto";
 musicAudio.loop=true;
